@@ -1,10 +1,15 @@
 Task Distribution:
 
-Thomas:
-	
+Thomas: (Haskell, Python)
+	Data Gathering
+	Data Query
+	Data Structure Creation
+	Data Transfer (Haskell -> Python)
 	
 Isaac:
-	
+	Main Program calling everything
+	Bit of Data Processing
+	Bit of GUI
 	
 Ben:
 	
