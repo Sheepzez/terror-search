@@ -6,17 +6,20 @@ Thomas: (Haskell, Python)
 	Data Structure Creation
 	Data Transfer (Haskell -> Python)
 	
-Isaac:
+Isaac: (Python, JavaScript)
 	Main Program calling everything
 	Bit of Data Processing
 	Bit of GUI
 	
 Ben:
-	
+	Bit of Data Processing
+	Bit of GUI
 	
 Dylan:
-	
+	Bit of Data Processing
+	Bit of GUI
 	
 Cameron:
-	
+	Bit of Data Processing
+	Bit of GUI
 	
