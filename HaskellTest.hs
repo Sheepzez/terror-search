@@ -1,1 +1,1 @@
-print "HASKELL TEST"
+-- This program is called by PYTHON_PROGRAM to parse the DATA document
