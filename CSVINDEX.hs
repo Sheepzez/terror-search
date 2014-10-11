@@ -23,9 +23,11 @@ main = do
     let tree  = M.fromAscList tupleLines
     let index = indicise titles listLines
     
+    
+    
     -- return $ M.lookup 197000000002 tree
-    print $ M.lookup "iyear" index
-    -- return titles
+    -- print $ M.lookup "iyear" index
+    return titles
     -- return index
 
 
