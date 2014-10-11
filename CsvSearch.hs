@@ -1,0 +1,47 @@
+-- This program takes a (formatted) query as a command line agument and returns a list of (formatted) lines that match the query
+import System.Environment
+import Text.JSON.Generic (toJSON)
+import Text.CSV (parseCSV)
+import Data.List (isInfixOf)
+
+main = do
+    query <- getArgs
+    contents <- readFile "BIGBOOK.csv"
+    let (ts:ls) = lines contents
+    let titles = toNice $ parseCSV "BIGBOOK.csv" ts
+    let eithErrCsv = map (parseCSV "BIGBOOK.csv") $ ls
+    let lazyLines = map toNice eithErrCsv
+    -- return . toJSON $ search titles query lazyLines
+    -- return $ search titles query lazyLines
+    -- return . toJSON $ search titles [("Data", "Kokang")] lazyLines
+    return $ search titles [("city", "Kokang"), ("iyear","2009")] lazyLines
+    -- return $ take 2 lazyLines
+    -- return $ toJSON titles
+
+-- toCSV :: Either ParseError CSV -> [[String]]
+toNice x = case x of
+    Left err -> []
+    Right [cs] -> cs :: [String]
+
+search :: [String] -> [(String, String)] -> [[String]] -> [[String]]
+search titles keyWords doc = foldr step [] doc
+    where step :: [String] -> [[String]] -> [[String]]
+          step entry acc = case matches titles keyWords entry of
+                    True  -> entry:acc
+                    False -> acc
+
+matches ts kw entr = foldr step False $ zip ts entr
+    where step (t,e) acc = case lookup t kw of
+            Just value -> if value `isInfixOf` e
+                            then True
+                            else acc
+            Nothing    ->        acc
+
+
+
+
+
+
+
+
+
