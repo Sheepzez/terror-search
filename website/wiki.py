@@ -13,18 +13,28 @@ def all_text(inp):
     heading_points = []  
     for x in iter(headings):
         heading_points += [(x.span())]
-    print (heading_points)
+    #print (heading_points)
 
     sub_heading_points = []  
     for x in iter(sub_headings):
         sub_heading_points += [(x.span())]
-    print (sub_heading_points)
-
+    #print (sub_heading_points)
+    
+    
+    
     out ={}
+    out["summary"]={"summary":current_page.summary}
+    c = 0
+    new = []*(len(heading_points)-1)
+    for x in new:
+        while sub_heading_points[c][0]< heading_points[x][1]:
+            x = [1]
+            c+=1
+
     c = 0
     for x in range(len(heading_points)-1):
         temp = {}
-        if sub_heading_points != []:
+        if new != []:
             while sub_heading_points[c][0]< heading_points[x][1]:
                 temp[text[sub_heading_points[c][0]+3:sub_heading_points[c][1]-3]]=text[sub_heading_points[c][1]+3:sub_heading_points[c+1][0]-3]
                 c+=1
@@ -45,4 +55,4 @@ def most_freq(inp):
 
 
 
-all_text("hackathon")
+all_text("yo-yo")
