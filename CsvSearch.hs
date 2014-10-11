@@ -24,9 +24,8 @@ main = do
 
 -- toCSV :: Either ParseError CSV -> [[String]]
 toNice x = case x of
-    Left err   -> []
-    Right [cs] -> cs :: [String]
-    Right []   -> ["EMPTY LIST"]
+    Left  err  -> []
+    Right cs -> cs :: [[String]]
 
 search :: [String] -> [(String, String)] -> [[String]] -> [[String]]
 search titles keyWords doc = foldr step [] doc
