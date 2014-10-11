@@ -20,10 +20,12 @@ main = do
     let tupleLines = map lineToTuple eithErrCsv
     let listLines  = map lineToList  eithErrCsv
     
+        -- Big Data Structures
     let tree  = M.fromAscList tupleLines
     let index = indicise titles listLines
     
     -- return . toJSON $ search titles query listLines
+    
     -- print . toJSON . take 2 $ search titles query listLines
     -- return . toJSON $ search titles [("Data", "Kokang")] listLines
     -- print . take 2 $ listLines
@@ -38,19 +40,21 @@ main = do
 getTitles x = case x of
     Left err -> []
     Right [cs] -> cs :: [String]
+    Right  cs  -> []
 
 -- toCSV :: Either ParseError CSV -> [(Integer,[String])]
 lineToTuple x = case x of
     Left err -> (0, ["ERROR"])
     Right [cs] -> (read $ head cs, cs) :: (Integer, [String])
+    Right  cs  -> (0, ["ERROR"])
 
 lineToList x = case x of
     Left  err  -> []
     Right [cs] -> cs :: [String] -- :: [T.Text]
+    Right  cs  -> []
 
 
-
--- Search Functions not using trees (60s)
+-- Search Functions not using trees
 
 search :: [String] -> [(String, String)] -> [[[String]]] -> [[String]]
 search titles keyWords doc = foldr step [] doc
