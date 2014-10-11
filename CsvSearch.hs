@@ -11,14 +11,14 @@ main = do
     contents <- readFile "BIGBOOK.csv"
     let (ts:ls) = lines contents
     let titles = head . toNice $ parseCSV "BIGBOOK.csv" ts
-    let eithErrCsv = map (parseCSV "BIGBOOK.csv") $ ls
+    let eithErrCsv = map (parseCSV "BIGBOOK.csv") ls
     let lazyLines = map toNice eithErrCsv
     
     -- return . toJSON $ search titles query lazyLines
-    -- return $ search titles query lazyLines
+    print . toJSON . take 2 $ search titles query lazyLines
     -- return . toJSON $ search titles [("Data", "Kokang")] lazyLines
     -- print . take 2 $ lazyLines
-    print . take 2 $ search titles query lazyLines
+    -- print . take 2 $ search titles query lazyLines
     -- return $ take 2 lazyLines
     -- return $ toJSON titles
 
