@@ -32,7 +32,7 @@ main = do
     
     -- return $ M.lookup 197000000002 tree
     -- print $ M.lookup "iyear" index
-    return titles
+    print titles
     -- return index
 
 getTitles x = case x of
