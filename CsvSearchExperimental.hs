@@ -40,7 +40,7 @@ main = do
 
 getTitles x = case x of
     Left err -> []
-    Right [c:cs] -> c :: [String]
+    Right [cs] -> head cs :: [String]
 
 -- toCSV :: Either ParseError CSV -> [(Integer,[String])]
 lineToTuple x = case x of
