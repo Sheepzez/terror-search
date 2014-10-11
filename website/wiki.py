@@ -5,12 +5,22 @@ from nltk.corpus import stopwords
 import string
 
 def all_text(inp):
-    current_page = wikipedia.page(wikipedia.search(inp, results = 1))# search finds what it thinks is most relivent not the exact right match
+    current_page = wikipedia.page(wikipedia.search(inp, results = 1))
+    text = current_page.content
+    headings = re.finditer("[^=]==[^=](.*)[^=]==[^=]", text)
+    sub_headings = re.finditer("[^=]===[^=](.*)[^=]===[^=]",text)
     
-    one = re.search("[^=]==[^=](.*)[^=]==[^=]", current_page.content)
-    print (one)
-    #for x in one:
-        #print(x)
+    heading_points = []  
+    for x in iter(headings):
+        heading_points += [(x.span())]
+    print (heading_points)
+
+    sub_heading_points = []  
+    for x in iter(sub_headings):
+        sub_heading_points += [(x.span())]
+    print (sub_heading_points)
+
+    
     
             
 
