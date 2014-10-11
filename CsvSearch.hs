@@ -12,20 +12,21 @@ main = do
     let (ts:ls) = lines contents
     let titles = toNice $ parseCSV "BIGBOOK.csv" ts
     let eithErrCsv = map (parseCSV "BIGBOOK.csv") $ ls
-    -- let lazyLines = map toNice eithErrCsv
+    let lazyLines = map toNice eithErrCsv
     
     -- return . toJSON $ search titles query lazyLines
     -- return $ search titles query lazyLines
     -- return . toJSON $ search titles [("Data", "Kokang")] lazyLines
-    print . take 2 $ eithErrCsv
+    print . take 2 $ lazyLines
     -- print . take 2 $ search titles query lazyLines
     -- return $ take 2 lazyLines
     -- return $ toJSON titles
 
 -- toCSV :: Either ParseError CSV -> [[String]]
 toNice x = case x of
-    Left err -> []
+    Left err   -> []
     Right [cs] -> cs :: [String]
+    Right []   -> ["EMPTY LIST"]
 
 search :: [String] -> [(String, String)] -> [[String]] -> [[String]]
 search titles keyWords doc = foldr step [] doc
