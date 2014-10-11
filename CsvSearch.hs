@@ -5,7 +5,8 @@ import Text.CSV (parseCSV)
 import Data.List (isInfixOf)
 
 main = do
-    query <- getArgs
+    args <- getArgs
+    let query = read $ head args :: [(String, String)]
     contents <- readFile "BIGBOOK.csv"
     let (ts:ls) = lines contents
     let titles = toNice $ parseCSV "BIGBOOK.csv" ts
@@ -14,7 +15,7 @@ main = do
     -- return . toJSON $ search titles query lazyLines
     -- return $ search titles query lazyLines
     -- return . toJSON $ search titles [("Data", "Kokang")] lazyLines
-    return $ search titles [("city", "Kokang"), ("iyear","2009")] lazyLines
+    return $ search titles query lazyLines
     -- return $ take 2 lazyLines
     -- return $ toJSON titles
 
@@ -36,12 +37,3 @@ matches ts kw entr = foldr step False $ zip ts entr
                             then True
                             else acc
             Nothing    ->        acc
-
-
-
-
-
-
-
-
-
