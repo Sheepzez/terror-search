@@ -20,8 +20,20 @@ def all_text(inp):
         sub_heading_points += [(x.span())]
     print (sub_heading_points)
 
-    
-    
+    out ={}
+    c = 0
+    for x in range(len(heading_points)-1):
+        temp = {}
+        if sub_heading_points != []:
+            while sub_heading_points[c][0]< heading_points[x][1]:
+                temp[text[sub_heading_points[c][0]+3:sub_heading_points[c][1]-3]]=text[sub_heading_points[c][1]+3:sub_heading_points[c+1][0]-3]
+                c+=1
+        else:
+            temp[text[(heading_points[x][0]+3):(heading_points[x][1]-3)]]= text[(heading_points[x][1]):(heading_points[x+1][0])]
+            
+        out[text[(heading_points[x][0]+3):(heading_points[x][1]-3)]] = temp
+    print(out)    
+    #{heading:{sub_heading:data , sub_heading:data }, heading:{sub_heading:data , sub_heading:data} }
             
 
 def most_freq(inp):
@@ -33,4 +45,4 @@ def most_freq(inp):
 
 
 
-all_text("glasgow")
+all_text("hackathon")
