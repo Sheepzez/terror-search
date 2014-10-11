@@ -16,7 +16,7 @@ main = do
     -- return . toJSON $ search titles query lazyLines
     -- return $ search titles query lazyLines
     -- return . toJSON $ search titles [("Data", "Kokang")] lazyLines
-    return . take 2 $ lazyLines
+    print . take 2 $ lazyLines
     -- print . take 2 $ search titles query lazyLines
     -- return $ take 2 lazyLines
     -- return $ toJSON titles
