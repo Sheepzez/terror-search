@@ -1,0 +1,22 @@
+<html>
+<head>
+
+<title>BIT-DC app</title>
+
+</head>
+<body>
+
+
+<form action="/submitQuery" method="get">
+Search:<br>
+<input type="text" name="query" placeholder="Your Query" ><br>
+<input type="submit" placeholder="Submit">  
+</form>
+</body>
+
+
+
+
+
+
+</html>

@@ -1,0 +1,17 @@
+<html>
+<head>
+
+<title>BIT-DC app</title>
+
+</head>
+<body>
+
+
+Your query was: {{ query }}
+
+
+</body>
+
+
+
+</html>
