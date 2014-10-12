@@ -12,7 +12,8 @@ main = do
     let query = read $ head args :: [(String, String)]
     
     handle <- openFile "BIGBOOK.csv" ReadMode
-    hSetEncoding handle utf8_bom
+    encoding <- hGetEncoding handle
+    hSetEncoding handle encoding
     contents <- hGetContents handle
     
     let (ts:ls) = lines contents
