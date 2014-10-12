@@ -10,7 +10,9 @@ main = do
     args <- getArgs
     let query = read $ head args :: [(String, String)]
     
-    contents <- readFile "BIGBOOK.csv"
+    handle <- openFile "BIGBOOK.csv" ReadMode
+    hSetEncoding handle ISO88591
+    contents <- hGetContents handle
     
     let (ts:ls) = lines contents
     let titles = lineToList $ parseCSV "BIGBOOK.csv" ts
