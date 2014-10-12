@@ -27,7 +27,7 @@ main = do
     
     -- return . toJSON $ search titles query listLines
     
-    -- print . toJSON . take 2 $ search titles query listLines
+    print . toJSON . take 2 $ search titles query listLines
     -- return . toJSON $ search titles [("Data", "Kokang")] listLines
     -- print . take 2 $ listLines
     -- print . take 2 $ search titles query listLines
@@ -35,7 +35,7 @@ main = do
     
     -- return $ M.lookup 197000000002 tree
     -- print $ M.lookup "iyear" index
-    print titles
+    -- print titles
     -- return index
 
 getTitles x = case x of
