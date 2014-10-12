@@ -49,14 +49,14 @@ lineToList x = case x of
 
 -- Search Functions not using trees
 
-search :: [String] -> [(String, String)] -> [[[String]]] -> [[String]]
+search :: [String] -> [(String, String)] -> [[String]] -> [[String]]
 search titles keyWords doc = foldr step [] doc
-    where step :: [[String]] -> [[String]] -> [[String]]
+    where step :: [String] -> [[String]] -> [[String]]
           step entry acc = case matches titles keyWords entry of
                     True  -> (head entry):acc
                     False -> acc
 
-matches ts kw entr = foldr step False $ zip ts (head entr)
+matches ts kw entry = foldr step False $ zip ts (head entry)
     where step (t,e) acc = case lookup t kw of
             Just value -> if value `isInfixOf` e
                             then True
