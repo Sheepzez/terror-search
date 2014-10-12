@@ -13,7 +13,6 @@ main = do
     contents <- readFile "BIGBOOK.csv"
     
     let (ts:ls) = lines contents
-    print $ parseCSV "BIGBOOK.csv" ts
     let titles = lineToList $ parseCSV "BIGBOOK.csv" ts
     let eithErrCsv = map (parseCSV "BIGBOOK.csv") ls
     
