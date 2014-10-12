@@ -20,19 +20,15 @@ main = do
     let listLines  = map lineToList  eithErrCsv
     
         -- Big Data Structures
-    -- let tree  = M.fromAscList tupleLines
-    -- let index = indicise titles listLines
+    let tree  = M.fromAscList tupleLines
+    let index = indicise titles listLines
     
     -- return . toJSON $ search titles query listLines
-    
-    print . head $ tupleLines
-    print "HEYYYY"
-    print . head $ listLines
     
     -- print . toJSON . take 2 $ search titles query listLines
     -- return . toJSON $ search titles [("Data", "Kokang")] listLines
     -- print . take 2 $ listLines
-    -- print . take 2 $ search titles query listLines
+    print . take 2 $ search titles query listLines
     -- return $ toJSON titles
     
     -- return $ M.lookup 197000000002 tree
