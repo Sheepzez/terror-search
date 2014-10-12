@@ -27,7 +27,38 @@ Search:<br>
 <script type='text/javascript'>
 
 function handleSecondResponse(data) {
-    alert(data);
+<<<<<<< HEAD
+    <div class="row0">
+		<div class="small-4 columns" id="0">banter</div>
+		<div class="small-4 columns" id="1">banter</div>
+		<div class="small-4 columns" id="2">banter</div>
+		<div class="small-4 columns" id="3">banter</div>
+		<div class="small-4 columns" id="4">banter</div>
+	</div>
+	
+	<div class="row1">
+		<div class="small-4 columns" id="5">banter</div>
+		<div class="small-4 columns" id="6">banter</div>
+		<div class="small-4 columns" id="7">banter</div>
+	</div>
+	
+	<div class="row2">
+		<div class="small-4 columns" id="8">banter</div>
+	</div>
+	
+	<div class="row3">
+		<div class="small-4 columns" id="9">banter</div>
+		<div class="small-4 columns" id="10">banter</div>
+		<div class="small-4 columns" id="11">banter</div>
+	</div>
+	
+	<div class="row4">
+		<div class="small-4 columns" id="12">banter</div>
+		<div class="small-4 columns" id="13">banter</div>
+		<div class="small-4 columns" id="14">banter</div>
+		<div class="small-4 columns" id="15">banter</div>
+		<div class="small-4 columns" id="16">banter</div>
+	</div>
 
 }
 
@@ -55,4 +86,3 @@ $('.my-form').on('submit', function () {
 
 </body>
 </html>
-
