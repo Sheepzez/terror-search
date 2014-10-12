@@ -25,7 +25,9 @@ main = do
     
     -- return . toJSON $ search titles query listLines
     
-    print . lineToTuple . head $ eithErrCsv
+    print . head $ tupleLines
+    print "HEYYYY"
+    print . head $ listLines
     
     -- print . toJSON . take 2 $ search titles query listLines
     -- return . toJSON $ search titles [("Data", "Kokang")] listLines
