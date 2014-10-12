@@ -5,13 +5,14 @@ import Text.CSV (parseCSV)
 import Data.List (isInfixOf)
 import qualified Data.Map.Lazy as M
 import qualified Data.Text as T
+import System.IO
 
 main = do
     args <- getArgs
     let query = read $ head args :: [(String, String)]
     
     handle <- openFile "BIGBOOK.csv" ReadMode
-    hSetEncoding handle utf8_bom
+    hSetEncoding handle latin1
     contents <- hGetContents handle
     
     let (ts:ls) = lines contents
@@ -25,18 +26,7 @@ main = do
     let tree  = M.fromAscList tupleLines
     let index = indicise titles listLines
     
-    -- return . toJSON $ search titles query listLines
-    
-    -- print . toJSON . take 2 $ search titles query listLines
-    -- return . toJSON $ search titles [("Data", "Kokang")] listLines
-    -- print . take 2 $ listLines
-    print . take 2 $ search titles query listLines
-    -- return $ toJSON titles
-    
-    -- return $ M.lookup 197000000002 tree
-    -- print $ M.lookup "iyear" index
-    -- print titles
-    -- return index
+    return . toJSON $ search titles query listLines
 
 
 -- toCSV :: Either ParseError CSV -> [(Integer,[String])]
