@@ -21,9 +21,9 @@ def homeInput(request):
     return render(request, 'query', {})
     
 
-def callHaskell(request):
+def callHaskell(request): #can be viewed at localhost:8000/haskell/
     PARAMETER = "[(\"iyear\", \"2009\"), (\"city\", \"kokang\")]"
     output = subprocess.check_output(['./CsvSearch', PARAMETER])
-    pyDict = json.loads(output)
+    pyDict = json.loads(output) #Comment this out for no error (haskell json is incompatible for some reason)
     print pyDictp
     return HttpResponse(output)
