@@ -12,8 +12,7 @@ main = do
     let query = read $ head args :: [(String, String)]
     
     handle <- openFile "BIGBOOK.csv" ReadMode
-    encoding <- hGetEncoding handle
-    hSetEncoding handle $ noEither encoding
+    hSetEncoding handle latin1
     contents <- hGetContents handle
     
     let (ts:ls) = lines contents
@@ -50,9 +49,6 @@ lineToList x = case x of
     Left   err   -> []
     Right (c:cs) -> c :: [String] -- :: [T.Text]
 
-noEither x = case x of
-    Left err -> localeEncoding
-    Right en -> en
 
 -- Search Functions not using trees
 
