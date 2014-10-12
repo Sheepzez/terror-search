@@ -53,7 +53,7 @@ search :: [String] -> [(String, String)] -> [[String]] -> [[String]]
 search titles keyWords doc = foldr step [] doc
     where step :: [String] -> [[String]] -> [[String]]
           step entry acc = case matches titles keyWords entry of
-                    True  -> (head entry):acc
+                    True  -> entry:acc
                     False -> acc
 
 matches ts keyWords entry = foldr step False $ zip ts entry
