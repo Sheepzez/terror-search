@@ -5,6 +5,7 @@ import Text.CSV (parseCSV)
 import Data.List (isInfixOf)
 import qualified Data.Map.Lazy as M
 import qualified Data.Text as T
+import Prelude
 
 main = do
     args <- getArgs
