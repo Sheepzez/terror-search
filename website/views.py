@@ -10,8 +10,9 @@ def home(request):
 def homeInputJson(request):
     query = request.GET['query']
     result = all_text(query)
-    jsData = json.dumps(result)
-    return HttpResponse(json.dumps(result), content_type="application/json")
+    jsonData = json.dumps(result)
+    print jsonData
+    return HttpResponse(jsonData, content_type="application/json")
 
 
 def homeInput(request):
