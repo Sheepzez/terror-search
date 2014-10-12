@@ -16,8 +16,8 @@ main = do
     let titles = lineToList $ parseCSV "BIGBOOK.csv" ts
     let eithErrCsv = map (parseCSV "BIGBOOK.csv") ls
     
-    -- let tupleLines = map lineToTuple eithErrCsv
-    -- let listLines  = map lineToList  eithErrCsv
+    let tupleLines = map lineToTuple eithErrCsv
+    let listLines  = map lineToList  eithErrCsv
     
         -- Big Data Structures
     -- let tree  = M.fromAscList tupleLines
