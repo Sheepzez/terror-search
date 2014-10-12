@@ -25,9 +25,13 @@ main = do
         -- Big Data Structures
     let tree  = M.fromAscList tupleLines
     let index = indicise titles listLines
+        -- The structures are too big not to be hosted in a (Yesod) server, which could not be set up; therefore the program is stuck with the slow search function (15-50 secs)
     
     print . toJSON $ search titles query listLines
-
+    
+        -- Big Data Structures test
+    -- print $ M.lookup 197001190003 tree
+    -- print $ M.lookup "2009" (M.lookup "iyear" index) 
 
 -- toCSV :: Either ParseError CSV -> [(Integer,[String])]
 lineToTuple x = case x of
