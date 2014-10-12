@@ -21,8 +21,8 @@ main = do
     -- let listLines  = map lineToList  eithErrCsv
     
         -- Big Data Structures
-    let tree  = M.fromAscList tupleLines
-    let index = indicise titles listLines
+    -- let tree  = M.fromAscList tupleLines
+    -- let index = indicise titles listLines
     
     -- return . toJSON $ search titles query listLines
     
