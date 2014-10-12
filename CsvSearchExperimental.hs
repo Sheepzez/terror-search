@@ -28,7 +28,8 @@ main = do
     
     print titles
     print "HEEEEY"
-    print . take 2 $ listLines
+    print . take 2 $ eithErrCsv
+    
     -- print . toJSON . take 2 $ search titles query listLines
     -- return . toJSON $ search titles [("Data", "Kokang")] listLines
     -- print . take 2 $ listLines
