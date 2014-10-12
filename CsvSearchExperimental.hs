@@ -26,18 +26,7 @@ main = do
     let tree  = M.fromAscList tupleLines
     let index = indicise titles listLines
     
-    -- return . toJSON $ search titles query listLines
-    
-    -- print . toJSON . take 2 $ search titles query listLines
-    -- return . toJSON $ search titles [("Data", "Kokang")] listLines
-    -- print . take 2 $ listLines
-    print . take 2 $ search titles query listLines
-    -- return $ toJSON titles
-    
-    -- return $ M.lookup 197000000002 tree
-    -- print $ M.lookup "iyear" index
-    -- print titles
-    -- return index
+    return . toJSON $ search titles query listLines
 
 
 -- toCSV :: Either ParseError CSV -> [(Integer,[String])]
