@@ -14,7 +14,7 @@ main = do
     
     let (ts:ls) = lines contents
     print $ parseCSV "BIGBOOK.csv" ts
-    let titles = getTitles $ parseCSV "BIGBOOK.csv" ts
+    let titles = lineToList $ parseCSV "BIGBOOK.csv" ts
     let eithErrCsv = map (parseCSV "BIGBOOK.csv") ls
     
     let tupleLines = map lineToTuple eithErrCsv
@@ -38,20 +38,14 @@ main = do
     -- print titles
     -- return index
 
-getTitles x = case x of
-    Left err -> []
-    Right cs -> head cs :: [String]
-
 -- toCSV :: Either ParseError CSV -> [(Integer,[String])]
 lineToTuple x = case x of
     Left err -> (0, ["ERROR"])
-    Right [cs] -> (read $ head cs, cs) :: (Integer, [String])
-    Right  cs  -> (0, ["ERROR"])
+    Right (c:cs) -> (read $ c, cs) :: (Integer, [String])
 
 lineToList x = case x of
-    Left  err  -> []
-    Right [cs] -> cs :: [String] -- :: [T.Text]
-    Right  cs  -> []
+    Left  err    -> []
+    Right (c:cs) -> c :: [String] -- :: [T.Text]
 
 
 -- Search Functions not using trees
