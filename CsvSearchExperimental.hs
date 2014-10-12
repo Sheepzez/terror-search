@@ -56,8 +56,8 @@ search titles keyWords doc = foldr step [] doc
                     True  -> (head entry):acc
                     False -> acc
 
-matches ts kw entry = foldr step False $ zip ts (head entry)
-    where step (t,e) acc = case lookup t kw of
+matches ts keyWords entry = foldr step False $ zip ts entry
+    where step (t,e) acc = case lookup t keyWords of
             Just value -> if value `isInfixOf` e
                             then True
                             else acc
