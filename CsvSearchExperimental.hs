@@ -39,7 +39,7 @@ main = do
     -- return index
 
 -- toCSV :: Either ParseError CSV -> [(Integer,[String])]
-lineToTuple [x] = case x of
+lineToTuple x = case x of
     Left   err   -> (0, ["ERROR"])
     Right (c:cs) -> (read $ c, cs) :: (Integer, [String])
 
