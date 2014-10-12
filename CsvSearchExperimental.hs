@@ -17,8 +17,8 @@ main = do
     let titles = lineToList $ parseCSV "BIGBOOK.csv" ts
     let eithErrCsv = map (parseCSV "BIGBOOK.csv") ls
     
-    let tupleLines = map lineToTuple eithErrCsv
-    let listLines  = map lineToList  eithErrCsv
+    -- let tupleLines = map lineToTuple eithErrCsv
+    -- let listLines  = map lineToList  eithErrCsv
     
         -- Big Data Structures
     let tree  = M.fromAscList tupleLines
@@ -43,11 +43,11 @@ main = do
 
 -- toCSV :: Either ParseError CSV -> [(Integer,[String])]
 lineToTuple x = case x of
-    Left err -> (0, ["ERROR"])
+    Left   err   -> (0, ["ERROR"])
     Right (c:cs) -> (read $ c, cs) :: (Integer, [String])
 
 lineToList x = case x of
-    Left  err    -> []
+    Left   err   -> []
     Right (c:cs) -> c :: [String] -- :: [T.Text]
 
 
