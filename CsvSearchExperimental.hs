@@ -25,9 +25,7 @@ main = do
     
     -- return . toJSON $ search titles query listLines
     
-    print titles
-    print "HEEEEY"
-    print . take 2 $ eithErrCsv
+    print . head $ eithErrCsv
     
     -- print . toJSON . take 2 $ search titles query listLines
     -- return . toJSON $ search titles [("Data", "Kokang")] listLines
@@ -41,7 +39,7 @@ main = do
     -- return index
 
 -- toCSV :: Either ParseError CSV -> [(Integer,[String])]
-lineToTuple x = case x of
+lineToTuple [x] = case x of
     Left   err   -> (0, ["ERROR"])
     Right (c:cs) -> (read $ c, cs) :: (Integer, [String])
 
