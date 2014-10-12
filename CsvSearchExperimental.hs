@@ -38,10 +38,11 @@ main = do
     -- print titles
     -- return index
 
+
 -- toCSV :: Either ParseError CSV -> [(Integer,[String])]
 lineToTuple x = case x of
     Left   err   -> (0, ["ERROR"])
-    Right (c:cs) -> (read $ c, cs) :: (Integer, [String])
+    Right (c:cs) -> (read $ head c, c) :: (Integer, [String])
 
 lineToList x = case x of
     Left   err   -> []
