@@ -7,9 +7,8 @@ import qualified Data.Map.Lazy as M
 import qualified Data.Text as T
 
 main = do
-    -- args <- getArgs
-    -- let query = read $ head args :: [(String, String)]
-    -- print query
+    args <- getArgs
+    let query = read $ head args :: [(String, String)]
     
     contents <- readFile "BIGBOOK.csv"
     
